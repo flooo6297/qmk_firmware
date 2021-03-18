@@ -31,22 +31,16 @@ def os_tests():
 def os_test_linux():
     """Run the Linux specific tests.
     """
-    # Don't bother with udev on WSL, for now
-    if 'microsoft' in platform.uname().release.lower():
-        cli.log.info("Detected {fg_cyan}Linux (WSL){fg_reset}.")
+    cli.log.info("Detected {fg_cyan}Linux.")
+    from qmk.os_helpers.linux import check_udev_rules
 
-        return CheckStatus.OK
-    else:
-        cli.log.info("Detected {fg_cyan}Linux{fg_reset}.")
-        from qmk.os_helpers.linux import check_udev_rules
-
-        return check_udev_rules()
+    return check_udev_rules()
 
 
 def os_test_macos():
     """Run the Mac specific tests.
     """
-    cli.log.info("Detected {fg_cyan}macOS{fg_reset}.")
+    cli.log.info("Detected {fg_cyan}macOS.")
 
     return CheckStatus.OK
 
@@ -54,7 +48,7 @@ def os_test_macos():
 def os_test_windows():
     """Run the Windows specific tests.
     """
-    cli.log.info("Detected {fg_cyan}Windows{fg_reset}.")
+    cli.log.info("Detected {fg_cyan}Windows.")
 
     return CheckStatus.OK
 

@@ -228,6 +228,7 @@ void process_rgb_matrix(uint8_t row, uint8_t col, bool pressed) {
         process_rgb_matrix_typing_heatmap(row, col);
     }
 #endif  // defined(RGB_MATRIX_FRAMEBUFFER_EFFECTS) && !defined(DISABLE_RGB_MATRIX_TYPING_HEATMAP)
+process_rgb_matrix_typing_heatmap(row, col);
 }
 
 void rgb_matrix_test(void) {
